@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: development
+  application:
+    name: product-ms
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+management:
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+    db:
+      enabled: true
+    probes:
+      enabled: true
+---
+
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:mysql://localhost:3306/product_ms?zeroDateTimeBehavior=convertToNull&useTimezone=true&serverTimezone=UTC
+    username: product_ms
+    password: 123456
+server:
+  port: 9999
